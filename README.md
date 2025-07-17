@@ -1,2 +1,2 @@
 # nginx-tomcat
-An Operator for Nginx-tomcat
+An operator for Nginx-tomcat, which execute the reconciliation accurately, thoroughly and avoiding any adverse effects.
