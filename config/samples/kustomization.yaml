@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- mynginx_v1_monitoring.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples

@@ -1,0 +1,15 @@
+{{- if .Values.nginx.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Chart.Name }}-nginx-service
+  labels:
+    app: {{ .Chart.Name }}-nginx
+spec:
+  type: {{ .Values.nginx.service.type }}
+  ports:
+    - port: {{ .Values.nginx.service.port }}
+      targetPort: {{ .Values.nginx.service.targetPort }}
+  selector:
+    app: {{ .Chart.Name }}-nginx
+  {{- end }}

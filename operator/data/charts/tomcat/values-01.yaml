@@ -1,0 +1,25 @@
+# Nginx Configuration
+nginx:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: nginx
+    tag: "1.25.3"
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 80
+    targetPort: 80
+
+# Tomcat Configuration
+tomcat:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: tomcat
+    tag: "10.1.18-jdk17"  # Tomcat 10 + Java 17
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 8080
+    targetPort: 8080

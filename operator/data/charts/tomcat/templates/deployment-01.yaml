@@ -1,0 +1,25 @@
+{{- if .Values.nginx.enabled }}
+apiVersion: {{ include "common.capabilities.deployment.apiVersion" . }}
+
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}-nginx
+  labels:
+    app: {{ .Chart.Name }}-nginx
+spec:
+  replicas: {{ .Values.nginx.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}-nginx
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}-nginx
+    spec:
+      containers:
+        - name: nginx
+          image: "{{ .Values.nginx.image.repository }}:{{ .Values.nginx.image.tag }}"
+          imagePullPolicy: {{ .Values.nginx.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.nginx.service.targetPort }}
+  {{- end }}

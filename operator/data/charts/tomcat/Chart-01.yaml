@@ -1,0 +1,5 @@
+apiVersion: v2
+name: nginx-tomcat-chart
+description: Helm chart for Nginx + Tomcat
+version: 0.2.0
+appVersion: "1.25.3"  # Default Nginx version
